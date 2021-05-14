@@ -1,0 +1,37 @@
+Task 18:
+
+🔅 Create an AWS EC2 instance 
+🔅 Configure the instance with Apache Webserver.
+🔅 Download php application name "WordPress".
+🔅 As wordpress stores data at the backend in MySQL
+Database server. Therefore, you need to setup a
+MySQL server using AWS RDS service using Free Tier.
+🔅 Provide the endpoint/connection string to the
+WordPress application to make it work. 
+
+
+steps:
+
+Configure ec2 instance 
+create RDS mysql database
+
+{installing php7.2 : amazone-linux-extras install php7.2 -y
+
+installing and unzipping wordpress:   wget https://wordpress.org/latest.tar.gz
+				      tar xvzf latest.tar.qz -C /var/www/html 
+
+cd /var/www/html/wordpress/
+touch wp-config.php
+cat wp-config-sample.php > wp-config.php
+
+install Mysql : yum install mysql -y
+
+create data and give endpoint from the rds :	mysql -h <endpoint> -u <username> -p
+
+configure the wp-config.php file with RDS: vim wp-config.php
+
+restart httpd service: systemctl restart httpd
+
+with public url/wordpress we can register abd login 
+
+ 
